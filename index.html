@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21天脂肪断舍离减重训练营 | 诗韵</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold: #C4A265;
+            --gold-light: #E8D5B0;
+            --green: #5B7B5E;
+            --green-dark: #3D5A3F;
+            --bg: #FDFBF7;
+            --bg-warm: #F9F3E9;
+            --text: #2D2D2D;
+            --text-light: #6B6B6B;
+            --red: #C45C4A;
+        }
+        body {
+            font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.8;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #2D3A2E 0%, #1A2520 100%);
+            color: #fff;
+            text-align: center;
+            padding: 60px 24px 40px;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.5; margin-bottom: 12px; }
+        .hero h1 span { color: var(--gold-light); }
+        .hero .subtitle { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+        .hero-tags { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .hero-tag {
+            background: rgba(196,162,101,0.15);
+            border: 1px solid rgba(196,162,101,0.3);
+            color: var(--gold-light);
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        /* HERO IMAGE */
+        .hero-img {
+            width: 100%;
+            max-width: 680px;
+            margin: 0 auto;
+            display: block;
+        }
+        .hero-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* SECTIONS */
+        .section { padding: 50px 24px; max-width: 680px; margin: 0 auto; }
+        .section-dark { background: var(--bg-warm); }
+        .section-green { background: linear-gradient(135deg, #2D3A2E, #1A2520); color: #fff; }
+        .section-title { text-align: center; margin-bottom: 32px; }
+        .section-title h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+        .section-title .line { width: 40px; height: 2px; background: var(--gold); margin: 10px auto 0; }
+
+        /* TEXT BLOCKS */
+        .text-block {
+            font-size: 15px;
+            line-height: 2.2;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+        .text-block strong { color: var(--text); }
+        .text-block-center { text-align: center; }
+        .text-highlight {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--green-dark);
+            text-align: center;
+            margin: 30px 0;
+            line-height: 2;
+        }
+        .text-red { color: var(--red); font-weight: 700; }
+
+        /* IMAGES */
+        .img-full { width: 100%; border-radius: 10px; margin: 20px 0; display: block; }
+        .img-rounded { width: 100%; border-radius: 16px; margin: 20px 0; display: block; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+        /* IMAGE GRID */
+        .img-grid { display: grid; gap: 12px; margin: 20px 0; }
+        .img-grid-2 { grid-template-columns: 1fr 1fr; }
+        .img-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+        .img-grid img { width: 100%; border-radius: 8px; display: block; }
+        @media (max-width: 480px) {
+            .img-grid-3 { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* PAIN LIST */
+        .pain-item {
+            padding: 12px 0;
+            font-size: 15px;
+            border-bottom: 1px dashed #E5E0D5;
+            color: var(--text-light);
+        }
+        .pain-item:last-child { border-bottom: none; }
+        .pain-label { font-weight: 700; color: var(--text); }
+
+        /* QUOTE BLOCK */
+        .quote-block {
+            margin: 24px 0;
+            padding: 20px 24px;
+            background: #fff;
+            border-left: 3px solid var(--gold);
+            border-radius: 0 10px 10px 0;
+            font-size: 15px;
+            line-height: 2.2;
+            color: var(--green-dark);
+        }
+        .quote-block-dark {
+            background: rgba(255,255,255,0.06);
+            border-left: 3px solid var(--gold);
+            border-radius: 0 10px 10px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+            font-size: 15px;
+            line-height: 2.2;
+        }
+
+        /* SELLING POINTS */
+        .sp-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid #F0EBE0;
+        }
+        .sp-card h3 { font-size: 16px; font-weight: 700; color: var(--green-dark); margin-bottom: 8px; }
+        .sp-card p { font-size: 14.5px; color: var(--text-light); line-height: 1.9; }
+
+        /* VALUE TABLE */
+        .value-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        .value-table th { background: var(--green-dark); color: #fff; padding: 12px 14px; text-align: left; font-weight: 500; }
+        .value-table td { padding: 12px 14px; border-bottom: 1px solid #EDE8DD; vertical-align: top; }
+        .value-table tr:nth-child(even) { background: rgba(196,162,101,0.05); }
+        .value-table .price-tag { color: var(--red); font-weight: 600; white-space: nowrap; }
+        .value-total {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--green-dark), var(--green));
+            color: #fff;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 2;
+        }
+        .value-total .big { font-size: 26px; font-weight: 800; color: var(--gold-light); }
+
+        /* WHO LIST */
+        .who-list { list-style: none; }
+        .who-list li {
+            padding: 10px 0 10px 32px;
+            font-size: 15px;
+            position: relative;
+            border-bottom: 1px dashed #E5E0D5;
+        }
+        .who-list li:last-child { border-bottom: none; }
+        .who-list li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        /* PRICING */
+        .pricing-box {
+            text-align: center;
+            background: #fff;
+            border-radius: 16px;
+            padding: 36px 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 2px solid var(--gold);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .pricing-box .original { font-size: 16px; color: var(--text-light); text-decoration: line-through; }
+        .pricing-box .price { font-size: 44px; font-weight: 800; color: var(--red); margin: 8px 0; }
+        .pricing-box .price .yen { font-size: 22px; }
+        .pricing-box .price-note { font-size: 14px; color: var(--gold); margin-bottom: 16px; }
+        .pricing-box .duo { font-size: 14px; color: var(--text-light); margin-bottom: 16px; }
+        .guarantee {
+            display: inline-block;
+            background: var(--green-dark);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* CTA */
+        .cta-section { text-align: center; padding: 50px 24px; background: linear-gradient(135deg, #2D3A2E, #1A2520); color: #fff; }
+        .cta-section h2 { font-size: 20px; margin-bottom: 16px; }
+        .qrcode-img { width: 240px; border-radius: 12px; margin: 20px auto; display: block; background: #fff; padding: 8px; }
+        .cta-section .wechat-id {
+            display: inline-block;
+            background: rgba(196,162,101,0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin: 12px 0;
+        }
+        .cta-section .note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+
+        /* FOOTER */
+        .footer-quote {
+            text-align: center;
+            padding: 48px 24px;
+            font-size: 15px;
+            line-height: 2.2;
+            color: var(--text-light);
+        }
+        .footer-quote .golden { font-size: 17px; color: var(--green-dark); font-weight: 600; margin-top: 20px; }
+        .footer-quote .sig { margin-top: 16px; color: var(--gold); font-weight: 600; }
+        .footer-tags { font-size: 13px; color: var(--text-light); line-height: 2; margin-top: 12px; }
+
+        /* PERSONAL PHOTOS */
+        .photo-row { display: flex; gap: 12px; margin: 20px 0; }
+        .photo-row img { flex: 1; width: 50%; border-radius: 10px; object-fit: cover; }
+
+        /* DIVIDER */
+        .divider { text-align: center; padding: 20px 0; color: var(--gold); font-size: 20px; letter-spacing: 8px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .hero { padding: 48px 20px 32px; }
+            .hero h1 { font-size: 24px; }
+            .section { padding: 40px 20px; }
+            .pricing-box .price { font-size: 36px; }
+            .photo-row { flex-direction: column; }
+            .photo-row img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-badge">诗韵享瘦 · 第15期</div>
+    <h1><span>0药物，0节食，0反弹，好坚持</span></h1>
+    <p class="subtitle">这么好的减肥训练营你不来可就亏大了！</p>
+    <div class="hero-tags">
+        <span class="hero-tag">0药物</span>
+        <span class="hero-tag">0节食</span>
+        <span class="hero-tag">0反弹</span>
+        <span class="hero-tag">好坚持</span>
+        <span class="hero-tag">超有效</span>
+    </div>
+</section>
+
+<div class="hero-img">
+    <img src="images/古筝荷花照.jpg" alt="诗韵">
+</div>
+
+<!-- ===== 痛点 ===== -->
+<section class="section">
+    <div class="text-block">
+        <p><strong>人，只要一胖，不管你多好看多牛多有才华，别人提到你都是，那个胖子。</strong></p>
+        <br>
+        <p>哪怕是和男友，或者老公撒个娇，得到的回应都大相径庭。</p>
+        <p><strong>瘦人</strong>撒娇在老公眼里你就是个磨人的<strong>小妖精</strong>，<strong>胖子</strong>撒娇在老公眼里你就是个<strong>大妖怪</strong>，这就是你们的差别……</p>
+        <br>
+        <p>所以每当我们看到自己的腰围一天天变粗，体重秤上的数字一天天变大时，我们都会嚷嚷着要减肥了，可是几乎没有一次成功过，减肥计划一次次"流产"，我们开始逃避自己长胖的原因，自暴自弃地认为自己是天生的胖子，是基因问题，没办法呀，喝冷水都胖。</p>
+    </div>
+
+    <div class="text-highlight">
+        难道我们真的那么难"瘦"吗？<br>
+        <span class="text-red">NO！</span><br>
+        事实是我们之所以减肥失败，<br>往往是一开始就选择了错误的减肥方法。
+    </div>
+</section>
+
+<!-- ===== 踩过的雷 ===== -->
+<section class="section section-dark">
+    <div class="section-title">
+        <h2>让我们一起看看为了减肥你曾踩过的雷</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="pain-item"><span class="pain-label">节食减肥</span> —— 伤害了身体还影响新陈代谢</div>
+    <div class="pain-item"><span class="pain-label">药物手术</span> —— 副作用大风险高</div>
+    <div class="pain-item"><span class="pain-label">私教健身</span> —— 不易坚持价格贵</div>
+    <div class="pain-item"><span class="pain-label">所谓攻略</span> —— 知识零碎见效难</div>
+
+    <img src="images/中国茶业杂志封面.jpg" alt="中国茶业杂志" class="img-rounded">
+
+    <div class="text-block" style="margin-top:24px;">
+        <p>不管你是哪一种，我先分享一下自己曾经踩过的雷，掉过的坑。</p>
+        <br>
+        <p>大学的时候我就买过减肥药、减肥茶，瘦得确实快，一周掉好几斤。但拉得很厉害，整个人面色发黄，完全没有气色。停了之后体重立刻反弹，比之前还重。</p>
+        <br>
+        <p>后来还试过代餐奶昔，早餐晚餐都喝它。喝了一周，体重是掉了3斤，但奶水明显少了，大宝吃不饱整天哭，我饿得头晕眼花，带娃都没力气。</p>
+        <br>
+        <p>可以说，除了打针动刀，能试的我几乎都试过了。</p>
+        <br>
+        <p>负责任地说，这些方法短期有用，但都是以损害健康为代价的。饿出来的瘦，一点也不美，稍微一吃就反弹回来。</p>
+    </div>
+
+    <div class="text-block">
+        <p>期间还尝试过<strong>苹果减肥法</strong>（两个星期每天只吃苹果），<strong>木瓜牛奶减肥法</strong>（一个暑假只吃木瓜牛奶），<strong>酸奶减肥法</strong>（半年每天只吃一个火龙果+一瓶酸奶），<strong>蜂蜜醋减肥法</strong>，<strong>保鲜膜减肥法</strong>（夏天包裹着保鲜膜去跑步，结果浑身长疹子），<strong>辣椒燃脂膏减肥法</strong>（皮肤过敏到凌晨去医院挂急诊，浑身火辣辣疼到终身难忘）。</p>
+        <br>
+        <p>除了这些，我也尝试过大家熟悉的<strong>辟谷，轻断食，汗蒸，酵素减肥、减肥丸，减肥茶，代餐减肥、找健身教练上私教课</strong>等。</p>
+        <br>
+        <p>可以说，只要是不打针，不动刀的办法我应该几乎尝试遍了。负责任的说一下，这些方法有用吗，有一些短期来看是有用的，但是都是<strong>以损害自己的健康为前提的，譬如，厌食症，长期饿肚子导致严重胃病，头晕。营养不良，导致提前脱发白发，经期混乱，内分泌失调，脸色蜡黄</strong>。虽然是瘦了，可是瘦的一点也不美，而且稍微一吃，又很快反弹回来。</p>
+    </div>
+</section>
+
+<!-- ===== 选对方法 ===== -->
+<section class="section">
+    <div class="text-highlight">
+        那究竟要怎么才能瘦下去呢？<br>
+        <span style="color:var(--gold);">选对方法很重要</span>
+    </div>
+
+    <img src="images/抱宝宝花房照.jpg" alt="诗韵和宝宝" class="img-rounded">
+    <img src="images/女对比2.jpg" alt="对比照" class="img-rounded">
+
+    <div class="text-block" style="margin-top:24px;">
+        <p>生完第一胎后，我比孕前还胖20斤，脸肿、身材走形，焦虑到不行。</p>
+        <p>忍不住大晚上不睡觉去网上研究各种方法，</p>
+        <br>
+        <p>越研究越焦虑，好像就没有哪个方法是真的很安全很有效的，</p>
+        <p>减肥药伤身且有依赖，代餐难吃又难坚持，节食更是"饿不了一点"。</p>
+        <p>我以为，当妈妈后，"瘦回去"就是一种奢望。</p>
+        <br>
+        <p>直到我遇见了<strong>馨予老师的《脂肪断舍离》训练营</strong>。</p>
+    </div>
+</section>
+
+<!-- ===== 我的蜕变 ===== -->
+<section class="section section-dark">
+    <div class="section-title">
+        <h2>三个月，我不仅瘦了，还怀上了二胎</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="text-block">
+        <p>不到三个月，我<strong>回到了孕前体重</strong>，身体恢复得特别好，不但没有影响母乳喂养大宝，甚至还意外怀上了二宝。</p>
+        <p>这不是"减肥"，而是一场<strong>身体的自我重建</strong>。</p>
+        <br>
+        <p>之后，我养成了"好好吃饭"的习惯。</p>
+        <p>生完二宝，我也是用这个方法，也是<strong>在三个月左右时间恢复孕前体重</strong>，身体没有垮，反而越来越健康，期间还接了"美旳茶泡机"的代言工作。</p>
+        <br>
+        <p>我用四年时间、两次产后恢复的真实经历，验证了这套方法的<strong>安全、有效与可持续</strong>。</p>
+    </div>
+
+    <div class="quote-block">
+        <strong>掌握这个方法后，最幸福的一件事，就是不用饿肚子还能瘦。</strong><br>
+        以前产后不敢吃，怕胖。现在我正常吃三餐，碳水蛋白质蔬菜搭配好，吃得饱饱的，身材照样恢复。<br><br>
+        熟悉我的人都知道，我三次产后都在2~3个月恢复到孕前体重。<br><br>
+        <strong>不是天生瘦，是吃对了。</strong>
+    </div>
+
+    <img src="images/抱宝宝+古筝背景.png" alt="诗韵产后恢复" class="img-rounded">
+
+    <div class="text-block" style="margin-top:24px;">
+        <p><strong>最重要，吃很多，还很瘦，熟悉我的你们都知道我这几年一直把体重很好的控制在88斤左右（身高158厘米）。</strong></p>
+        <br>
+        <p><strong>其次，这个方法，非常安全，不需要配合任何药物，代餐。</strong></p>
+        <br>
+        <p><strong>当然，最重要的是这个方法，有效，且不容易反弹。</strong></p>
+        <br>
+        <p><strong>譬如，19年春天指导的伙伴们中就有好几位在短短的3个月每人瘦了20多斤，到今年还是保持的很好。</strong></p>
+    </div>
+</section>
+
+<!-- ===== 学员案例 ===== -->
+<section class="section">
+    <div class="section-title">
+        <h2>学员真实案例</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="text-block">
+        <p><strong>学员案例1：</strong>已婚两个小孩的妈妈三个月瘦掉20斤，变得比结婚前还美，减肥简直就是整形。</p>
+    </div>
+    <img src="images/学员断舍离前后对比照.jpg" alt="学员案例1 断舍离前后" class="img-rounded">
+    <img src="images/学员微信聊天截图（感恩）.jpg" alt="学员案例1 聊天" class="img-rounded">
+
+    <div class="divider">· · ·</div>
+
+    <div class="text-block">
+        <p><strong>学员案例2：</strong>大学生，花季少女3个月瘦22斤，一年无反弹。</p>
+    </div>
+    <img src="images/微信聊天（瘦20斤无反弹）.jpg" alt="学员案例2" class="img-rounded">
+
+    <div class="divider">· · ·</div>
+
+    <div class="text-block">
+        <p><strong>学员案例3：</strong>我老公按照我的课程，5个月瘦了52斤。</p>
+    </div>
+    <img src="images/男对比.jpg" alt="学员案例3 男士对比" class="img-rounded">
+</section>
+
+<!-- ===== 第一期效果 ===== -->
+<section class="section section-green">
+    <div class="section-title">
+        <h2 style="color:#fff;">第一期训练营学员一周减肥效果</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="img-grid img-grid-2">
+        <img src="images/一周瘦8.4斤.jpg" alt="一周瘦8.4斤">
+        <img src="images/一周瘦5.4斤.jpg" alt="一周瘦5.4斤">
+        <img src="images/一周瘦5.2斤（男士）.jpg" alt="一周瘦5.2斤">
+        <img src="images/一周瘦3.4斤.jpg" alt="一周瘦3.4斤">
+        <img src="images/一周瘦3.7斤.jpg" alt="一周瘦3.7斤">
+        <img src="images/一周瘦2.2斤.jpg" alt="一周瘦2.2斤">
+        <img src="images/一周瘦2.2斤（代餐）.jpg" alt="一周瘦2.2斤（代餐）">
+    </div>
+
+    <div class="quote-block-dark" style="margin-top:30px; text-align:center; color:var(--gold-light);">
+        <p><strong>看完这些减肥案例，你是不是也很心动呢？</strong></p>
+        <p>最幸福的是她们没有饿肚子，没有吃任何代餐和减肥产品瘦的哦~</p>
+        <p><strong>看到这篇文章的你想不想也这样轻轻松松变得又瘦又美呢？</strong></p>
+    </div>
+</section>
+
+<!-- ===== 六大卖点 ===== -->
+<section class="section section-dark">
+    <div class="section-title">
+        <h2>这门课，凭什么让你瘦？</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="sp-card">
+        <h3>① 教你底层逻辑，不卖你任何产品</h3>
+        <p>外面90%的减肥营都在卖产品。代餐、酵素、减肥茶……不买就反弹。<br>我不一样。我不卖任何产品，只教你两样东西：<strong>方法 + 陪伴。</strong><br>学会了，离开我你也能继续瘦。</p>
+    </div>
+
+    <div class="sp-card">
+        <h3>② 没有固定食谱，用你爱吃的食物就能瘦</h3>
+        <p>你爱吃米饭？能吃。爱吃面条？能吃。偶尔想吃火锅？也能吃。<br>我不会给你一份冷冰冰的食谱让你照着执行。<br>我教你的是<strong>看懂食物、看懂自己的身体</strong>，让你学会做自己的减肥教练。</p>
+    </div>
+
+    <div class="sp-card">
+        <h3>③ 全程线上，每天30分钟，在家就能瘦</h3>
+        <p>不用去健身房，不用出门。<br>每天30分钟，散散步、做做拉伸就够了。<br>宝妈在家带娃也能做，上班族下班回家也能做。</p>
+    </div>
+
+    <div class="sp-card">
+        <h3>④ 21天全程1对1饮食指导</h3>
+        <p>这不是一个买了就丢在那里的录播课。<br>你每天吃了什么，发给我，我帮你看。<br>哪里吃多了，哪里搭配不对，我一条条帮你调。<br><strong>手把手教到你会为止。</strong></p>
+    </div>
+
+    <div class="sp-card">
+        <h3>⑤ 不只是减肥，全家人都能受益</h3>
+        <p>学会科学吃饭这件事，不只你一个人能用。<br>老公的啤酒肚、爸妈的三高、孩子的饮食习惯……<br><strong>一套方法，全家受益。</strong><br>你买的不是一个21天的减肥课，你买的是一套受益终身的健康饮食体系。</p>
+    </div>
+
+    <div class="sp-card">
+        <h3>⑥ 21天不瘦，全额退款</h3>
+        <p>你不需要冒任何风险。<br>21天下来，体重没有变化，一分钱不收，全额退。<br>敢这么承诺，是因为这套方法经过<strong>上千名学员验证</strong>。</p>
+    </div>
+
+    <div class="text-highlight" style="margin-top:24px;">
+        别人帮你瘦，只能瘦一阵子。<br>
+        自己学会瘦，就可以瘦一辈子。
+    </div>
+</section>
+
+<!-- ===== 你将获得 ===== -->
+<section class="section">
+    <div class="section-title">
+        <h2>你将获得</h2>
+        <div class="line"></div>
+    </div>
+
+    <table class="value-table">
+        <thead>
+            <tr><th>服务内容</th><th>价值</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>21天系统微课，学会瘦的底层逻辑，从此不再交智商税</td><td class="price-tag">999元</td></tr>
+            <tr><td>21天1对1饮食指导，吃什么、怎么吃、吃多少，手把手教到你会</td><td class="price-tag">599元</td></tr>
+            <tr><td>1小时1对1语音深度诊断，全面了解你的饮食习惯，量身定制专属方案</td><td class="price-tag">299元</td></tr>
+            <tr><td>群内实时答疑，遇到问题随时问，不让你一个人扛</td><td class="price-tag">199元</td></tr>
+            <tr><td>365天知识星球陪伴，结营不失联，持续为你保驾护航</td><td class="price-tag">99元</td></tr>
+            <tr><td>一套受益终身的健康饮食体系，全家人都能用</td><td class="price-tag" style="color:var(--gold);">无价</td></tr>
+            <tr><td>同频伙伴互相鼓励打卡，减肥路上从不孤单</td><td class="price-tag" style="color:var(--gold);">—</td></tr>
+        </tbody>
+    </table>
+
+    <div class="value-total">
+        以上服务总价值超过 <span class="big">2195</span> 元<br>
+        早鸟价仅需 <span class="big">999</span> 元
+    </div>
+
+    <div class="text-highlight" style="margin-top:24px; font-size:15px;">
+        科学的减肥方法，良好的减肥氛围，<br>不止让你瘦，更让你养成易瘦体质，以后想胖都难。
+    </div>
+</section>
+
+<!-- ===== 适合人群 ===== -->
+<section class="section section-dark">
+    <div class="section-title">
+        <h2>谁适合参加？</h2>
+        <div class="line"></div>
+    </div>
+    <ul class="who-list">
+        <li>试过很多方法都失败，反反复复瘦不下来的人</li>
+        <li>工作忙、应酬多，没时间研究怎么吃的上班族</li>
+        <li>啤酒肚越来越大、体检指标开始亮红灯的人</li>
+        <li>不想去健身房，也不想吃水煮鸡胸肉，只想正常吃饭就能瘦的人</li>
+        <li>不想节食吃药，想健康瘦下来的人</li>
+        <li>产后想快速恢复身材的宝妈</li>
+        <li>想带着全家人一起养成健康饮食习惯的人</li>
+    </ul>
+    <div class="text-highlight" style="margin-top:20px; font-size:15px;">
+        适合所有想健康瘦下来的人。<br>
+        为了保证效果，每期人数限定20人以内。
+    </div>
+</section>
+
+<!-- ===== 价格 ===== -->
+<section class="section">
+    <div class="section-title">
+        <h2>价格</h2>
+        <div class="line"></div>
+    </div>
+    <div class="pricing-box">
+        <div class="original">原价 1499元</div>
+        <div class="price"><span class="yen">¥</span>999</div>
+        <div class="price-note">🔥 早鸟价（前10名）</div>
+        <div class="duo">👯 两人同行 1699元/2人</div>
+        <div class="guarantee">21天不瘦 · 全额退款</div>
+        <div style="margin-top:16px; font-size:14px; color:var(--text-light); line-height:1.8;">
+            第15期 · 5月X日开营<br>
+            仅限20人 · 报满即止
+        </div>
+    </div>
+    <div class="text-highlight" style="margin-top:24px; font-size:15px;">
+        外出吃两顿饭的钱，给自己一个变美的机会吧！
+    </div>
+</section>
+
+<!-- ===== 承诺 ===== -->
+<section class="section section-dark">
+    <div class="section-title">
+        <h2>🔒 承诺</h2>
+        <div class="line"></div>
+    </div>
+    <div class="text-block text-block-center" style="font-size:16px;">
+        <p><strong>21天不瘦，全额退款。</strong></p>
+        <br>
+        <p>你不需要犹豫。</p>
+        <p>要么瘦了，你赚了。</p>
+        <p>要么没瘦，钱退你，一分不少。</p>
+        <p><strong>怎么算，你都不亏。</strong></p>
+    </div>
+</section>
+
+<!-- ===== 报名 ===== -->
+<section class="cta-section">
+    <h2>扫码添加诗韵微信，备注"报名"</h2>
+    <img src="images/微信二维码.png" alt="诗韵微信二维码" class="qrcode-img">
+    <div class="wechat-id">shiyunaini520</div>
+    <p class="note">名额有限，报满即止</p>
+</section>
+
+<!-- ===== 结尾金句 ===== -->
+<section class="footer-quote">
+    <p><strong>连体重都控制不了怎么控制人生？</strong></p>
+    <br>
+    <p><strong>减肥这件事，如果不在该完成的阶段把它完成，那它以后一定会不断跳出来烦你，并且越往后成本越高。</strong></p>
+    <br>
+    <p><strong>希望你每天看到体重秤上不断下降的数字时，都很庆幸参加了这期脂肪断舍离减肥训练营。</strong></p>
+
+    <div class="divider" style="margin:30px 0 20px;">· · ·</div>
+
+    <div class="footer-tags">
+        我是诗韵<br>
+        一个爱美的三胎宝妈<br>
+        《脂肪断舍离》认证讲师<br>
+        古筝直播博主｜全网25w粉<br>
+        你身边最近的身材管理陪伴师<br><br>
+        陪你健康瘦，温柔美。<br>
+        陪你从瘦到美，一步到位。
+    </div>
+
+    <p class="golden">
+        你本自具足。<br>
+        你值得更好的自己。
+    </p>
+    <p class="sig">诗韵享瘦 · 脂肪断舍离认证讲师</p>
+</section>
+
+</body>
+</html>
